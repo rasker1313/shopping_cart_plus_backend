@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
-import App from './app-complete/App.vue';
-import store from './app-complete/store';
+import App from './App.vue';
+//import store from './store';
 
 createApp(App)
-    .use(store)
+    //.use(store)
     .mount('#app');
