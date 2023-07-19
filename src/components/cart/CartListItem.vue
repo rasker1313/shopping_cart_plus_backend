@@ -13,7 +13,7 @@
           <span class="cart-item--price
               has-text-primary
               has-text-weight-bold">
-            {{ cartItem.price }}$ each
+             $ {{ cartItem.price }}
           </span>
       <span class="cart-item--quantity
               has-text-grey
@@ -30,7 +30,7 @@ import { mapActions } from "vuex";
 export default {
   name: "CartListItem",
   props: ["cartItem"],
-  computed:{
+  methods: {
     ...mapActions([
         "addCartItem",
         "removeCartItem"
