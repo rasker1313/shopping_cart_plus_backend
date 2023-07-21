@@ -10,7 +10,7 @@ const mutations = {
     [types.UPDATE_CART_ITEMS] (state, payload){
         state.cartItems = payload
     },
-    CHECKOUT_CART (state) {
+    [types.CHECKOUT_CART] (state) {
         state.checkout = true;
     }
 };
@@ -36,9 +36,10 @@ const actions = {
             commit("UPDATE_CART_ITEMS", response.data)
         })
     },
-    checkoutCart ({ commit }, cart) {
-        axios.post('/api/cart/checkout', cart).then((responce) => {
-            commit('CHECKOUT_CART', responce.data)
+    checkoutCart ({ commit }) {
+        axios.post('/api/cart/checkout').then((response) => {
+            commit(types.CHECKOUT_CART, response.data)
+            //commit(types.UPDATE_CART_ITEMS, response.data)
         })
     }
 };
